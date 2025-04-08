@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { FiArrowRight, FiCode, FiLayers, FiServer } from "react-icons/fi";
 import { useEffect, useState } from "react";
-import rocket from "../images/rocket.png";
+import rocket from "@/assets/images/rocket.png";
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -42,7 +42,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center pt-35 pb-16 overflow-hidden"
+      className="relative min-h-screen flex items-center py-28 overflow-hidden"
     >
       {/* Animated background gradient */}
       <div
@@ -266,27 +266,9 @@ export default function Hero() {
                 </div>
                 <div>
                   <div className="text-xs text-gray-500 dark:text-gray-400">
-                    Products Delivered
+                    Products
                   </div>
-                  <div className="font-bold">50+</div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="absolute bottom-4 left-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-3 rounded-lg shadow-lg z-30 flex items-center gap-3"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.4, duration: 0.5 }}
-                whileHover={{ y: 5 }}
-              >
-                <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900/50 rounded-full flex items-center justify-center text-purple-600 dark:text-purple-400">
-                  <FiLayers />
-                </div>
-                <div>
-                  <div className="text-xs text-gray-500 dark:text-gray-400">
-                    Happy Clients
-                  </div>
-                  <div className="font-bold">100+</div>
+                  <div className="font-bold">10+</div>
                 </div>
               </motion.div>
             </motion.div>

@@ -7,6 +7,12 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import MU from "@/assets/images/projects/MU.png";
+import PZ from "@/assets/images/projects/PZ.png";
+import RB from "@/assets/images/projects/RB.png";
+import RBF from "@/assets/images/projects/RBF.png";
+import EMGH from "@/assets/images/projects/EMGH.png";
+import RBMA from "@/assets/images/projects/RBMA.jpg";
 
 export default function Projects() {
   const [filter, setFilter] = useState("all");
@@ -23,52 +29,52 @@ export default function Projects() {
 
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "RenderBooking",
       category: "web",
-      image: "/project1.jpg",
-      link: "#",
+      image: RB,
+      link: "https://renderbooking.com/",
       description:
-        "A fully-featured e-commerce platform with advanced filtering and payment integration.",
+        "A fully-featured vehicle rental platform.",
     },
     {
-      title: "Healthcare Mobile App",
+      title: "RenderBooking Mobile App",
       category: "mobile",
-      image: "/project2.jpg",
-      link: "#",
+      image: RBMA,
+      link: "https://play.google.com/store/apps/details?id=com.renderbooking.render&hl=en",
       description:
-        "Patient management mobile application for healthcare providers.",
+        "Mobile app for vehicle rental services.",
     },
     {
-      title: "Financial Dashboard",
+      title: "ESUMEGH",
       category: "web",
-      image: "/project3.jpg",
-      link: "#",
+      image: EMGH,
+      link: "https://esumegh.net/",
       description:
-        "Interactive data visualization dashboard for financial analytics.",
+        "A comprehensive platform for flight ticketing system.",
     },
     {
-      title: "Restaurant Booking System",
+      title: "RB Food",
       category: "web",
-      image: "/project4.jpg",
-      link: "#",
+      image: RBF,
+      link: "https://food.renderbooking.com/",
       description:
-        "Online reservation system for restaurants with table management.",
+        "Online food ordering and delivery platform.",
     },
     {
-      title: "Fitness Tracking App",
+      title: "Math Uplift",
+      category: "web",
+      image: MU,
+      link: "https://mathuplift.com/",
+      description:
+        "A learning platform for children.",
+    },
+    {
+      title: "Playerz App",
       category: "mobile",
-      image: "/project5.jpg",
-      link: "#",
+      image: PZ,
+      link: "https://play.google.com/store/apps/details?id=com.convergestack.playerz",
       description:
-        "Mobile app for tracking workouts, nutrition, and health metrics.",
-    },
-    {
-      title: "Real Estate Platform",
-      category: "web",
-      image: "/project6.jpg",
-      link: "#",
-      description:
-        "Property listing and management platform with virtual tours.",
+        "A social media platform for sports enthusiasts.",
     },
   ];
   const filteredProjects =
@@ -115,7 +121,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="py-10 relative overflow-hidden"
+      className="py-28 relative overflow-hidden"
       ref={sectionRef}
     >
       {/* Enhanced gradient background with animation */}
@@ -160,7 +166,7 @@ export default function Projects() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
             </span>
-            Our Work
+            Our Contributions
           </motion.span>
           <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white">
             Recent Projects
@@ -188,11 +194,10 @@ export default function Projects() {
                 whileTap={{ scale: 0.95 }}
                 animate={filter === category ? "active" : "inactive"}
                 variants={badgeVariants}
-                className={`px-5 py-2 rounded-full font-medium transition-all duration-300 cursor-pointer ${
-                  filter === category
-                    ? "bg-gradient-to-r from-blue-800 to-purple-800 text-white shadow-lg shadow-blue-500/30 border border-blue-400/20"
-                    : "bg-white/10 text-white hover:bg-white/15 backdrop-blur-md border border-white/10"
-                }`}
+                className={`px-5 py-2 rounded-full font-medium transition-all duration-300 cursor-pointer ${filter === category
+                  ? "bg-gradient-to-r from-blue-800 to-purple-800 text-white shadow-lg shadow-blue-500/30 border border-blue-400/20"
+                  : "bg-white/10 text-white hover:bg-white/15 backdrop-blur-md border border-white/10"
+                  }`}
               >
                 {category.charAt(0).toUpperCase() + category.slice(1)}
               </motion.button>
@@ -239,10 +244,10 @@ export default function Projects() {
                           src={project.image}
                           alt={project.title}
                           fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-110 group-hover:brightness-110"
+                          className="h-100 w-100 transition-transform duration-700 group-hover:scale-110 group-hover:brightness-110"
                           style={{ objectPosition: "center" }}
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-blue-800/80 via-blue-800/50 to-transparent opacity-90 group-hover:opacity-75 transition-opacity duration-300"></div>
+                        {/* <div className="absolute inset-0 bg-gradient-to-t from-blue-800/80 via-blue-800/50 to-transparent opacity-90 group-hover:opacity-75 transition-opacity duration-300"></div> */}
 
                         {/* Enhanced category badge */}
                         <div className="absolute top-4 right-4 px-3 py-1 bg-blue-500/40 backdrop-blur-md rounded-full text-white text-xs font-medium border border-blue-300/20 shadow-lg shadow-blue-500/10">

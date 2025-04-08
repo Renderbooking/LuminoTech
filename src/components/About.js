@@ -10,7 +10,7 @@ import {
   FiCoffee,
 } from "react-icons/fi";
 import { useRef } from "react";
-import aboutImage from "../images/about.webp";
+import aboutImage from "@/assets/images/about.webp";
 
 export default function About() {
   const sectionRef = useRef(null);
@@ -38,8 +38,8 @@ export default function About() {
 
   const stats = [
     { value: "4+", label: "Years Experience" },
-    { value: "50+", label: "Projects Completed" },
-    { value: "10+", label: "Team Members" },
+    { value: "10+", label: "Projects" },
+    { value: "8", label: "Team Members" },
     { value: "95%", label: "Client Satisfaction" },
   ];
 
@@ -71,7 +71,7 @@ export default function About() {
     <section
       id="about"
       ref={sectionRef}
-      className="pt-10  pb-15 relative overflow-hidden bg-gradient-to-b from-white to-[#f8f9ff] dark:from-gray-900 dark:to-gray-800"
+      className="py-28 relative overflow-hidden bg-gradient-to-b from-white to-[#f8f9ff] dark:from-gray-900 dark:to-gray-800"
     >
       {/* Enhanced decorative background elements */}
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-blue-100/50 to-purple-100/30 dark:from-blue-900/20 dark:to-purple-900/10 rounded-full filter blur-3xl -z-10 transform translate-x-1/3 -translate-y-1/3"></div>
@@ -200,7 +200,7 @@ export default function About() {
                   </span>
                   <div className="text-xl font-bold text-blue-600 dark:text-blue-400 flex items-center">
                     <FiCoffee className="inline mr-2 animate-pulse" />
-                    2020
+                    2025
                   </div>
                 </motion.div>
               </motion.div>

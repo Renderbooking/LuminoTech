@@ -176,7 +176,7 @@ export default function Contact() {
     <section
       id="contact"
       ref={sectionRef}
-      className="py-16 relative overflow-hidden bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-950"
+      className="py-28 relative overflow-hidden bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-950"
     >
       {/* Enhanced background with animated gradients - modified to complement hero section */}
       <div className="absolute inset-0 -z-10">
@@ -329,10 +329,10 @@ export default function Contact() {
                       Phone
                     </h4>
                     <p className="mt-1 text-gray-900 dark:text-white">
-                      +1 (555) 123-4567
+                      +977 9801148240
                     </p>
                     <p className="mt-1 text-gray-900 dark:text-white">
-                      +1 (555) 987-6543
+                      +977 9704533845
                     </p>
                   </div>
                 </motion.div>
@@ -374,12 +374,11 @@ export default function Contact() {
                 </motion.div>
               </div>
 
-              <div className="mt-8">
+              {/* <div className="mt-8">
                 <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">
                   Follow Us
                 </h4>
                 <div className="flex">
-                  {/* Social Media Icons */}
                   {[
                     {
                       icon: <FiFacebook size={20} />,
@@ -408,11 +407,10 @@ export default function Contact() {
                       className="p-3 rounded-full flex items-center justify-center text-white shadow-md hover:shadow-lg transition-all duration-300 bg-gradient-to-r dark:opacity-90 hover:scale-110"
                       style={{
                         background: `linear-gradient(to right, var(--tw-gradient-stops))`,
-                        backgroundImage: `linear-gradient(to right, ${
-                          social.color.includes("from-")
-                            ? ""
-                            : "#3B82F6, #8B5CF6"
-                        })`,
+                        backgroundImage: `linear-gradient(to right, ${social.color.includes("from-")
+                          ? ""
+                          : "#3B82F6, #8B5CF6"
+                          })`,
                       }}
                       aria-label={social.name}
                       initial={{ opacity: 0, scale: 0.8 }}
@@ -425,7 +423,7 @@ export default function Contact() {
                     </motion.a>
                   ))}
                 </div>
-              </div>
+              </div> */}
             </motion.div>
 
             <motion.div
@@ -528,11 +526,10 @@ export default function Contact() {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className={`w-full p-3 rounded-lg border ${
-                        errors.name
-                          ? "border-red-500"
-                          : "border-gray-300 dark:border-gray-600"
-                      } bg-transparent dark:text-white placeholder-gray-400 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 transition-colors`}
+                      className={`w-full p-3 rounded-lg border ${errors.name
+                        ? "border-red-500"
+                        : "border-gray-300 dark:border-gray-600"
+                        } bg-transparent dark:text-white placeholder-gray-400 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 transition-colors`}
                       placeholder="John Doe"
                     />
                     {errors.name && (
@@ -561,11 +558,10 @@ export default function Contact() {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 rounded-lg border ${
-                        errors.email
-                          ? "border-red-500"
-                          : "border-gray-300 dark:border-gray-600"
-                      } bg-transparent dark:text-white placeholder-gray-400 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 transition-colors`}
+                      className={`w-full px-4 py-3 rounded-lg border ${errors.email
+                        ? "border-red-500"
+                        : "border-gray-300 dark:border-gray-600"
+                        } bg-transparent dark:text-white placeholder-gray-400 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 transition-colors`}
                       placeholder="john@example.com"
                     />
                     {errors.email && (
@@ -596,11 +592,10 @@ export default function Contact() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 rounded-lg border ${
-                        errors.phone
-                          ? "border-red-500"
-                          : "border-gray-300 dark:border-gray-600"
-                      } bg-transparent dark:text-white placeholder-gray-400 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 transition-colors`}
+                      className={`w-full px-4 py-3 rounded-lg border ${errors.phone
+                        ? "border-red-500"
+                        : "border-gray-300 dark:border-gray-600"
+                        } bg-transparent dark:text-white placeholder-gray-400 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 transition-colors`}
                       placeholder="+977-9834000000"
                     />
                     {errors.phone && (
@@ -654,11 +649,10 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     rows="6"
-                    className={`w-full px-4 py-3 rounded-lg border ${
-                      errors.message
-                        ? "border-red-500"
-                        : "border-gray-300 dark:border-gray-600"
-                    } bg-transparent dark:text-white placeholder-gray-400 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 transition-colors`}
+                    className={`w-full px-4 py-3 rounded-lg border ${errors.message
+                      ? "border-red-500"
+                      : "border-gray-300 dark:border-gray-600"
+                      } bg-transparent dark:text-white placeholder-gray-400 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 transition-colors`}
                     placeholder="How can we help you?"
                   ></textarea>
                   {errors.message && (

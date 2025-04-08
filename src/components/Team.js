@@ -1,5 +1,4 @@
 "use client";
-
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import {
@@ -10,6 +9,14 @@ import {
   FiArrowLeft,
 } from "react-icons/fi";
 import { useRef, useState } from "react";
+import UK from "@/assets/images/teams/UK.jpg";
+import BK from "@/assets/images/teams/BK.jpeg";
+import SK from "@/assets/images/teams/SK.jpeg";
+import SC from "@/assets/images/teams/SC.jpeg";
+import KB from "@/assets/images/teams/KB.jpeg";
+import SP from "@/assets/images/teams/SP.jpeg";
+import RS from "@/assets/images/teams/RS.jpg";
+import AB from "@/assets/images/teams/AB.jpg";
 
 export default function Team() {
   const sectionRef = useRef(null);
@@ -27,82 +34,74 @@ export default function Team() {
 
   const team = [
     {
-      name: "John Smith",
-      role: "CEO & Founder",
-      image: "",
+      name: "Subash Khanal",
+      role: "Backend Developer",
+      image: SK,
       social: {
-        linkedin: "#",
-        twitter: "#",
-        email: "john@lumino.com",
+        linkedin: "https://www.linkedin.com/in/subash-khanal-408938205/",
+        email: "subashkhanal37@gmail.com",
       },
     },
     {
-      name: "Lisa Chen",
-      role: "CTO",
-      image: "",
+      name: "Utsab Khatiwada",
+      role: "Mobile App Developer",
+      image: UK,
       social: {
-        linkedin: "#",
-        twitter: "#",
-        email: "lisa@lumino.com",
+        linkedin: "https://www.linkedin.com/in/utsab-khatiwada-12a24619b/",
+        email: "khatiwodautsab22@gmail.com",
       },
     },
     {
-      name: "Mark Williams",
-      role: "Design Director",
-      image: "",
+      name: "Sudip Poudel",
+      role: "Frontend Developer",
+      image: SP,
       social: {
-        linkedin: "#",
-        twitter: "#",
+        linkedin: "https://www.linkedin.com/in/sudip-sharma-poudel-427497263/",
         email: "mark@lumino.com",
       },
     },
     {
-      name: "Sophia Rodriguez",
-      role: "Marketing Strategist",
-      image: "",
+      name: "Saugat Chettri",
+      role: "UI/UX Designer",
+      image: SC,
       social: {
-        linkedin: "#",
-        twitter: "#",
+        linkedin: "https://www.linkedin.com/in/saugat-kc-559661125/",
         email: "sophia@lumino.com",
       },
     },
     {
-      name: "John Smith",
-      role: "CEO & Founder",
-      image: "",
+      name: "Kewal Bhattarai",
+      role: "Jr. Mobile App Developer",
+      image: KB,
       social: {
-        linkedin: "#",
-        twitter: "#",
-        email: "john@lumino.com",
+        linkedin: "https://www.linkedin.com/in/kewal-bhattarai/",
+        email: "kewal.bhattarai11@gmail.com",
       },
     },
     {
-      name: "Lisa Chen",
-      role: "CTO",
-      image: "",
+      name: "Biplab Khanal",
+      role: "Jr. Backend Developer",
+      image: BK,
       social: {
-        linkedin: "#",
-        twitter: "#",
-        email: "lisa@lumino.com",
+        linkedin: "https://www.linkedin.com/in/biplab-khanal-7999901a3/",
+        email: "khanalbiplab@gmail.com",
       },
     },
     {
-      name: "Mark Williams",
-      role: "Design Director",
-      image: "",
+      name: "Anupa Baral",
+      role: "Jr. Frontend Developer",
+      image: AB,
       social: {
-        linkedin: "#",
-        twitter: "#",
+        linkedin: "https://www.linkedin.com/in/anupa-baral-440956215/",
         email: "mark@lumino.com",
       },
     },
     {
-      name: "Sophia Rodriguez",
-      role: "Marketing Strategist",
-      image: "",
+      name: "Reshma Shrestha",
+      role: "QA Engineer",
+      image: RS,
       social: {
-        linkedin: "#",
-        twitter: "#",
+        linkedin: "https://www.linkedin.com/in/reshma-shrestha-6aa233270/",
         email: "sophia@lumino.com",
       },
     },
@@ -182,7 +181,7 @@ export default function Team() {
     <section
       id="team"
       ref={sectionRef}
-      className="py-10 relative overflow-hidden"
+      className="py-28 relative overflow-hidden"
     >
       {/* Animated background layers */}
       <motion.div
@@ -285,7 +284,6 @@ export default function Team() {
                               icon: <FiLinkedin />,
                               url: member.social.linkedin,
                             },
-                            { icon: <FiTwitter />, url: member.social.twitter },
                             {
                               icon: <FiMail />,
                               url: `mailto:${member.social.email}`,
@@ -340,11 +338,10 @@ export default function Team() {
                 <button
                   key={idx}
                   onClick={() => setCurrentPage(idx)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${
-                    currentPage === idx
-                      ? "bg-blue-600 scale-125"
-                      : "bg-gray-300 dark:bg-gray-600"
-                  }`}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${currentPage === idx
+                    ? "bg-blue-600 scale-125"
+                    : "bg-gray-300 dark:bg-gray-600"
+                    }`}
                   aria-label={`Go to page ${idx + 1}`}
                 />
               ))}

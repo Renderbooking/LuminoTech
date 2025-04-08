@@ -79,7 +79,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="py-10 relative overflow-hidden dark:bg-gray-900"
+      className="py-28 relative overflow-hidden dark:bg-gray-900"
     >
       {/* Updated Background decorative elements - incorporating FAF5FF color */}
       <div className="absolute inset-0 bg-gradient-to-tr from-[#FAF5FF] via-blue-50/20 to-white dark:from-gray-900 dark:via-blue-900/5 dark:to-gray-800 -z-10"></div>
@@ -160,11 +160,10 @@ export default function Services() {
               variants={itemVariants}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className={`relative rounded-xl overflow-hidden group ${
-                service.featured
+              className={`relative rounded-xl overflow-hidden group ${service.featured
                   ? "border-2 border-purple-500 dark:border-purple-400"
                   : "border border-purple-100/60 dark:border-gray-700"
-              } shadow-lg hover:shadow-lg hover:shadow-purple-200/50 dark:hover:shadow-purple-900/30 transition-all duration-300 cursor-pointer`}
+                } shadow-lg hover:shadow-lg hover:shadow-purple-200/50 dark:hover:shadow-purple-900/30 transition-all duration-300 cursor-pointer`}
             >
               <div className="bg-white dark:bg-gray-800 p-8 h-full">
                 <motion.div

@@ -94,11 +94,10 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-white/95 dark:bg-gray-900/95 shadow-lg backdrop-blur-sm py-2"
-          : "bg-transparent py-6"
-      }`}
+      className={`fixed w-full z-50 transition-all duration-200 ${scrolled
+        ? "bg-white/95 dark:bg-gray-900/95 shadow-lg backdrop-blur-sm py-2"
+        : "bg-transparent py-6"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 ">
         <div className="flex justify-between items-center">
@@ -137,11 +136,10 @@ export default function Navbar() {
                   {link.name}
                 </span>
                 <span
-                  className={`absolute bottom-0 left-3 right-3 h-0.5 bg-primary-600 dark:bg-primary-400 transform origin-left transition-transform duration-300 ${
-                    activeLink === link.href.slice(1)
-                      ? "scale-x-100"
-                      : "scale-x-0"
-                  } group-hover:scale-x-100`}
+                  className={`absolute bottom-0 left-3 right-3 h-0.5 bg-primary-600 dark:bg-primary-400 transform origin-left transition-transform duration-300 ${activeLink === link.href.slice(1)
+                    ? "scale-x-100"
+                    : "scale-x-0"
+                    } group-hover:scale-x-100`}
                 ></span>
               </Link>
             ))}
@@ -153,9 +151,8 @@ export default function Navbar() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 rounded-md cursor-pointer ${
-                isOpen ? "bg-gray-200 dark:bg-gray-700" : ""
-              }`}
+              className={`p-2 rounded-md cursor-pointer ${isOpen ? "bg-gray-200 dark:bg-gray-700" : ""
+                }`}
               aria-label="Open menu"
             >
               {isOpen ? (
@@ -189,9 +186,8 @@ export default function Navbar() {
                       >
                         {link.name}
                         <FiChevronDown
-                          className={`transition-transform duration-300 ${
-                            dropdownOpen ? "rotate-180" : ""
-                          }`}
+                          className={`transition-transform duration-300 ${dropdownOpen ? "rotate-180" : ""
+                            }`}
                         />
                       </button>
 
@@ -223,11 +219,10 @@ export default function Navbar() {
                   ) : (
                     <Link
                       href={link.href}
-                      className={`block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700 ${
-                        activeLink === link.href.slice(1)
-                          ? "text-primary-600 dark:text-primary-400 bg-gray-50 dark:bg-gray-900"
-                          : ""
-                      }`}
+                      className={`block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700 ${activeLink === link.href.slice(1)
+                        ? "text-primary-600 dark:text-primary-400 bg-gray-50 dark:bg-gray-900"
+                        : ""
+                        }`}
                       onClick={() => setIsOpen(false)}
                     >
                       {link.name}

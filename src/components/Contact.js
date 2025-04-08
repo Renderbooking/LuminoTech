@@ -436,16 +436,14 @@ export default function Contact() {
                 Our Location
               </h3>
               <div className="h-60 rounded-lg overflow-hidden shadow-inner">
-                {/* Google Maps iframe */}
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.29586519554!2d85.32162217470844!3d27.712948126181474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19a352aaaaab%3A0x6a2fbd6baa4ff55!2sPanipokhari%2C%20Kathmandu%2044600!5e0!3m2!1sen!2snp!4v1686662732920!5m2!1sen!2snp"
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d253.77566260905107!2d85.32535564400442!3d27.72989462991755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2snp!4v1744096136681!5m2!1sen!2snp"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Office Location"
                   className="grayscale-0 transition-all duration-500"
                 ></iframe>
               </div>

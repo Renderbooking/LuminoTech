@@ -112,46 +112,39 @@ export default function Navbar() {
 
           {/* Desktop menu */}
           <div className="hidden md:flex items-center space-x-1">
-            {navLinks.map((link) =>
-              link.submenu ? (
-                <div key={link.name} className="relative" ref={dropdownRef}>
-                  <button
-                    onClick={() => setDropdownOpen(!dropdownOpen)}
-                    className="px-3 py-2 rounded-md text-md font-large flex items-center hover:text-primary-600 dark:hover:text-primary-400"
-                  >
-                    {link.name}
-                    <FiChevronDown
-                      className={`ml-1 transition-transform duration-300 ${
-                        dropdownOpen ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                </div>
-              ) : (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="relative px-3 py-2 rounded-md text-md font-large group"
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="relative px-3 py-2 rounded-md text-md font-large group"
+                scroll={false}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const targetId = link.href.slice(1);
+                  const targetElement = document.getElementById(targetId);
+                  if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+              >
+                <span
+                  className={
+                    activeLink === link.href.slice(1)
+                      ? "text-primary-600 dark:text-primary-400"
+                      : ""
+                  }
                 >
-                  <span
-                    className={
-                      activeLink === link.href.slice(1)
-                        ? "text-primary-600 dark:text-primary-400"
-                        : ""
-                    }
-                  >
-                    {link.name}
-                  </span>
-                  <span
-                    className={`absolute bottom-0 left-3 right-3 h-0.5 bg-primary-600 dark:bg-primary-400 transform origin-left transition-transform duration-300 ${
-                      activeLink === link.href.slice(1)
-                        ? "scale-x-100"
-                        : "scale-x-0"
-                    } group-hover:scale-x-100`}
-                  ></span>
-                </Link>
-              )
-            )}
+                  {link.name}
+                </span>
+                <span
+                  className={`absolute bottom-0 left-3 right-3 h-0.5 bg-primary-600 dark:bg-primary-400 transform origin-left transition-transform duration-300 ${
+                    activeLink === link.href.slice(1)
+                      ? "scale-x-100"
+                      : "scale-x-0"
+                  } group-hover:scale-x-100`}
+                ></span>
+              </Link>
+            ))}
           </div>
 
           {/* Mobile menu button */}

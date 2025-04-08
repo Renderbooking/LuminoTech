@@ -268,7 +268,7 @@ export default function Hero() {
                   <div className="text-xs text-gray-500 dark:text-gray-400">
                     Products Delivered
                   </div>
-                  <div className="font-bold">100+</div>
+                  <div className="font-bold">50+</div>
                 </div>
               </motion.div>
 
@@ -286,7 +286,7 @@ export default function Hero() {
                   <div className="text-xs text-gray-500 dark:text-gray-400">
                     Happy Clients
                   </div>
-                  <div className="font-bold">150+</div>
+                  <div className="font-bold">100+</div>
                 </div>
               </motion.div>
             </motion.div>

@@ -352,9 +352,6 @@ export default function Contact() {
                     <p className="mt-1 text-gray-900 dark:text-white">
                       info@luminostack.com
                     </p>
-                    <p className="mt-1 text-gray-900 dark:text-white">
-                      support@luminostack.com
-                    </p>
                   </div>
                 </motion.div>
 

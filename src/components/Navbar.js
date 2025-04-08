@@ -152,46 +152,10 @@ export default function Navbar() {
                 </Link>
               )
             )}
-
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={toggleTheme}
-              className={`p-2 rounded-full ml-2 ${
-                isDark
-                  ? "bg-gray-700 text-yellow-300"
-                  : "bg-blue-100 text-blue-800"
-              }`}
-              aria-label="Toggle dark mode"
-            >
-              {isDark ? (
-                <FiSun className="h-5 w-5" />
-              ) : (
-                <FiMoon className="h-5 w-5" />
-              )}
-            </motion.button>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center ">
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={toggleTheme}
-              className={`p-2 rounded-full mr-2 cursor-pointer ${
-                isDark
-                  ? "bg-gray-700 text-yellow-300"
-                  : "bg-blue-100 text-blue-800"
-              }`}
-              aria-label="Toggle dark mode"
-            >
-              {isDark ? (
-                <FiSun className="h-5 w-5" />
-              ) : (
-                <FiMoon className="h-5 w-5" />
-              )}
-            </motion.button>
-
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}

@@ -4,12 +4,9 @@ import {
   FiMail,
   FiPhone,
   FiMapPin,
-  FiArrowUp,
-  FiGithub,
   FiLinkedin,
   FiInstagram,
   FiFacebook,
-  FiTwitter,
   FiCode,
   FiUser,
   FiGrid,
@@ -164,12 +161,6 @@ const Footer = () => {
                     color: "#E4405F",
                   },
                   {
-                    icon: <FiTwitter />,
-                    url: "https://twitter.com",
-                    name: "Twitter",
-                    color: "#1DA1F2",
-                  },
-                  {
                     icon: <FiLinkedin />,
                     url: "https://linkedin.com",
                     name: "LinkedIn",
@@ -214,6 +205,16 @@ const Footer = () => {
                     <Link
                       href={link.href}
                       className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 flex items-center group"
+                      scroll={false}
+                      onClick={(e) => {
+                        if (link.href.startsWith("/#")) {
+                          e.preventDefault();
+                          const sectionId = link.href.replace("/#", "");
+                          document.getElementById(sectionId)?.scrollIntoView({
+                            behavior: "smooth",
+                          });
+                        }
+                      }}
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-500 dark:bg-blue-400 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                       {link.name}
@@ -238,22 +239,35 @@ const Footer = () => {
                   {
                     name: "Web Development",
                     icon: <FiCode className="mr-2" />,
+                    href: "/#services",
                   },
                   {
                     name: "Mobile App Development",
                     icon: <FiUser className="mr-2" />,
+                    href: "/#services",
                   },
-                  { name: "UI/UX Design", icon: <FiGrid className="mr-2" /> },
-
+                  {
+                    name: "UI/UX Design",
+                    icon: <FiGrid className="mr-2" />,
+                    href: "/#services",
+                  },
                   {
                     name: "Digital Marketing",
                     icon: <FiHeart className="mr-2" />,
+                    href: "/#services",
                   },
                 ].map((service, i) => (
                   <motion.li key={i} variants={itemVariants}>
                     <Link
-                      href="#"
+                      href={service.href}
                       className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 flex items-center"
+                      scroll={false}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        document.getElementById("services")?.scrollIntoView({
+                          behavior: "smooth",
+                        });
+                      }}
                     >
                       {service.icon}
                       {service.name}
@@ -301,7 +315,7 @@ const Footer = () => {
       {/* Footer bottom / copyright */}
       <div className="border-t border-gray-200 dark:border-gray-700">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex flex-col md:flex-row justify-center items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -310,35 +324,6 @@ const Footer = () => {
               className="text-gray-600 dark:text-gray-400 text-sm mb-4 md:mb-0"
             >
               © {currentYear} LuminoStack. All rights reserved.
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex flex-wrap justify-center gap-4 text-sm"
-            >
-              <Link
-                href="#"
-                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
-              >
-                Privacy Policy
-              </Link>
-              <span className="text-gray-400 dark:text-gray-600">|</span>
-              <Link
-                href="#"
-                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
-              >
-                Terms of Service
-              </Link>
-              <span className="text-gray-400 dark:text-gray-600">|</span>
-              <Link
-                href="#"
-                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
-              >
-                Cookies
-              </Link>
             </motion.div>
           </div>
         </div>

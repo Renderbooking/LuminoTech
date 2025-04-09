@@ -68,7 +68,7 @@ const Footer = () => {
 
   // Footer links
   const links = [
-    { name: "Home", href: "/" },
+    { name: "Home", href: "/#home" },
     { name: "About", href: "/#about" },
     { name: "Services", href: "/#services" },
     { name: "Projects", href: "/#projects" },
@@ -128,7 +128,19 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <div className="flex items-center mb-5">
+              <Link
+                href="/"
+                className="flex items-center mb-5 cursor-pointer"
+                scroll={false}
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.scrollTo({
+                    top: 0,
+                    behavior: "smooth",
+                  });
+                  window.history.pushState({}, "", "/");
+                }}
+              >
                 <motion.div
                   className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mr-3"
                   initial={{ rotate: -10 }}
@@ -140,7 +152,7 @@ const Footer = () => {
                 <h3 className="text-gray-800 dark:text-white text-xl font-bold">
                   LuminoStack
                 </h3>
-              </div>
+              </Link>
               <p className="text-gray-600 dark:text-gray-300 mb-6">
                 Transforming ideas into exceptional digital experiences with
                 cutting-edge technology and innovative solutions.

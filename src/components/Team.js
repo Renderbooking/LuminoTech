@@ -35,7 +35,7 @@ export default function Team() {
   const team = [
     {
       name: "Subash Khanal",
-      role: "Backend Developer",
+      role: "Full-Stack Developer",
       image: SK,
       social: {
         linkedin: "https://www.linkedin.com/in/subash-khanal-408938205/",
@@ -44,7 +44,7 @@ export default function Team() {
     },
     {
       name: "Utsab Khatiwada",
-      role: "Mobile App Developer",
+      role: "Full-Stack Developer",
       image: UK,
       social: {
         linkedin: "https://www.linkedin.com/in/utsab-khatiwada-12a24619b/",
@@ -86,25 +86,7 @@ export default function Team() {
         linkedin: "https://www.linkedin.com/in/biplab-khanal-7999901a3/",
         email: "khanalbiplab@gmail.com",
       },
-    },
-    {
-      name: "Anupa Baral",
-      role: "Jr. Frontend Developer",
-      image: AB,
-      social: {
-        linkedin: "https://www.linkedin.com/in/anupa-baral-440956215/",
-        email: "mark@lumino.com",
-      },
-    },
-    {
-      name: "Reshma Shrestha",
-      role: "QA Engineer",
-      image: RS,
-      social: {
-        linkedin: "https://www.linkedin.com/in/reshma-shrestha-6aa233270/",
-        email: "sophia@lumino.com",
-      },
-    },
+    }
   ];
 
   // Calculate total pages
@@ -292,6 +274,8 @@ export default function Team() {
                             <motion.a
                               key={i}
                               href={social.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
                               custom={i}
                               variants={socialIconVariants}
                               initial="initial"

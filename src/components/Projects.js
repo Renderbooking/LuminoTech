@@ -226,7 +226,7 @@ export default function Projects() {
                     boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)",
                   }}
                 >
-                  <Link href={project.link}>
+                  <Link href={project.link} target="_blank" rel="noopener noreferrer">
                     <div
                       className="relative bg-white/10 backdrop-blur-xl hover:bg-white/15 rounded-xl overflow-hidden transition-all duration-300 border border-white/10 shadow-xl hover:shadow-2xl hover:shadow-blue-500/10 h-full flex flex-col cursor-pointer"
                       onMouseEnter={() => setActiveProject(index)}
@@ -239,15 +239,17 @@ export default function Projects() {
                         }}
                       ></div>
 
-                      <div className="relative h-56 overflow-hidden">
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          fill
-                          className="h-100 w-100 transition-transform duration-700 group-hover:scale-110 group-hover:brightness-110"
-                          style={{ objectPosition: "center" }}
-                        />
-                        {/* <div className="absolute inset-0 bg-gradient-to-t from-blue-800/80 via-blue-800/50 to-transparent opacity-90 group-hover:opacity-75 transition-opacity duration-300"></div> */}
+                      <div className="relative h-48 overflow-hidden bg-white rounded-t-lg">
+                        <div className="w-full h-full flex items-center justify-center p-4">
+                          <Image
+                            src={project.image}
+                            alt={project.title}
+                            width={300}
+                            height={200}
+                            className="max-w-full max-h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                          />
+                        </div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                         {/* Enhanced category badge */}
                         <div className="absolute top-4 right-4 px-3 py-1 bg-blue-500/40 backdrop-blur-md rounded-full text-white text-xs font-medium border border-blue-300/20 shadow-lg shadow-blue-500/10">

@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   FiMapPin,
@@ -14,6 +14,9 @@ import {
 } from "react-icons/fi";
 
 export default function Contact() {
+  // Client-side mounting state
+  const [isMounted, setIsMounted] = useState(false);
+
   // Form state
   const [formData, setFormData] = useState({
     name: "",
@@ -29,6 +32,11 @@ export default function Contact() {
   const [submitStatus, setSubmitStatus] = useState(null); // null, 'success', 'error'
   const formRef = useRef(null);
   const sectionRef = useRef(null);
+
+  // Set mounted state on client-side
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Parallax scroll effects
   const { scrollYProgress } = useScroll({
@@ -195,34 +203,38 @@ export default function Contact() {
 
       {/* Animated floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(10)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 rounded-full bg-blue-400/30 dark:bg-blue-400/20"
-            initial={{
-              x: Math.random() * 100 + "%",
-              y: Math.random() * 100 + "%",
-              scale: 0.5 + Math.random() * 1,
-            }}
-            animate={{
-              y: [
-                `${Math.random() * 100}%`,
-                `${Math.random() * 100}%`,
-                `${Math.random() * 100}%`,
-              ],
-              x: [
-                `${Math.random() * 100}%`,
-                `${Math.random() * 100}%`,
-                `${Math.random() * 100}%`,
-              ],
-            }}
-            transition={{
-              duration: 20 + Math.random() * 20,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          />
-        ))}
+        {isMounted && [...Array(10)].map((_, i) => {
+          // Generate deterministic values based on index
+          const xStart = (i * 11) % 100;
+          const yStart = (i * 13) % 100;
+          const scale = 0.5 + (i % 5) * 0.2;
+          const xEnd1 = (xStart + 25) % 100;
+          const yEnd1 = (yStart + 35) % 100;
+          const xEnd2 = (xStart + 50) % 100;
+          const yEnd2 = (yStart + 70) % 100;
+          const duration = 25 + (i % 8) * 3;
+
+          return (
+            <motion.div
+              key={`contact-particle-${i}-${xStart}-${yStart}`}
+              className="absolute w-2 h-2 rounded-full bg-blue-400/30 dark:bg-blue-400/20"
+              initial={{
+                x: `${xStart}%`,
+                y: `${yStart}%`,
+                scale,
+              }}
+              animate={{
+                y: [`${yStart}%`, `${yEnd1}%`, `${yEnd2}%`],
+                x: [`${xStart}%`, `${xEnd1}%`, `${xEnd2}%`],
+              }}
+              transition={{
+                duration,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            />
+          );
+        })}
       </div>
 
       {/* Dotted pattern overlay */}

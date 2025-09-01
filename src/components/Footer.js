@@ -81,40 +81,47 @@ const Footer = () => {
     <footer className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 overflow-hidden relative">
       {/* Animated background particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(12)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-blue-500/10 dark:bg-purple-500/10"
-            initial={{
-              x: Math.random() * 100 + "%",
-              y: Math.random() * 100 + "%",
-              scale: 1 + Math.random() * 5,
-            }}
-            animate={{
-              y: [
-                `${Math.random() * 100}%`,
-                `${Math.random() * 100}%`,
-                `${Math.random() * 100}%`,
-              ],
-              x: [
-                `${Math.random() * 100}%`,
-                `${Math.random() * 100}%`,
-                `${Math.random() * 100}%`,
-              ],
-            }}
-            transition={{
-              duration: 25 + Math.random() * 30,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-            style={{
-              width: 100 + Math.random() * 150,
-              height: 100 + Math.random() * 150,
-              opacity: 0.05 + Math.random() * 0.08,
-              filter: "blur(30px)",
-            }}
-          />
-        ))}
+        {[...Array(12)].map((_, i) => {
+          // Generate deterministic values based on index
+          const xStart = (i * 17) % 100;
+          const yStart = (i * 19) % 100;
+          const scale = 1 + (i % 5);
+          const xEnd1 = (xStart + 30) % 100;
+          const yEnd1 = (yStart + 40) % 100;
+          const xEnd2 = (xStart + 60) % 100;
+          const yEnd2 = (yStart + 80) % 100;
+          const duration = 30 + (i % 10) * 3;
+          const width = 120 + (i % 8) * 20;
+          const height = 120 + (i % 6) * 20;
+          const opacity = 0.06 + (i % 4) * 0.02;
+
+          return (
+            <motion.div
+              key={`footer-particle-${i}-${(i * 17) % 100}-${(i * 19) % 100}`}
+              className="absolute rounded-full bg-blue-500/10 dark:bg-purple-500/10"
+              initial={{
+                x: `${xStart}%`,
+                y: `${yStart}%`,
+                scale,
+              }}
+              animate={{
+                y: [`${yStart}%`, `${yEnd1}%`, `${yEnd2}%`],
+                x: [`${xStart}%`, `${xEnd1}%`, `${xEnd2}%`],
+              }}
+              transition={{
+                duration,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+              style={{
+                width,
+                height,
+                opacity,
+                filter: "blur(30px)",
+              }}
+            />
+          );
+        })}
       </div>
 
       {/* Scroll to top button */}

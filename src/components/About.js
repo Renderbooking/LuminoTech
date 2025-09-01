@@ -81,18 +81,18 @@ export default function About() {
       <div className="absolute inset-0 overflow-hidden -z-5">
         {[...Array(15)].map((_, i) => (
           <motion.div
-            key={i}
+            key={`about-particle-${i}-${(i * 23) % 100}-${(i * 37) % 100}`}
             className="absolute w-2 h-2 rounded-full bg-blue-400/20 dark:bg-blue-400/10"
             style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
+              top: `${(i * 23) % 100}%`,
+              left: `${(i * 37) % 100}%`,
             }}
             animate={{
-              y: [0, Math.random() * 30 * (Math.random() > 0.5 ? 1 : -1)],
+              y: [0, (i % 2 === 0 ? 1 : -1) * (15 + (i % 3) * 5)],
               opacity: [0.2, 0.5, 0.2],
             }}
             transition={{
-              duration: 3 + Math.random() * 5,
+              duration: 4 + (i % 4),
               repeat: Infinity,
               ease: "easeInOut",
             }}

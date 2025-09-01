@@ -54,37 +54,44 @@ export default function Hero() {
       />
 
       {/* Animated particles */}
-      <div className="absolute inset-0 z-0">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 rounded-full bg-primary-500 dark:bg-primary-300"
-            initial={{
-              opacity: 0.1 + Math.random() * 0.3,
-              x: Math.random() * 100 + "%",
-              y: Math.random() * 100 + "%",
-              scale: 0.2 + Math.random() * 1.5,
-            }}
-            animate={{
-              y: [
-                `${Math.random() * 100}%`,
-                `${Math.random() * 100}%`,
-                `${Math.random() * 100}%`,
-              ],
-              x: [
-                `${Math.random() * 100}%`,
-                `${Math.random() * 100}%`,
-                `${Math.random() * 100}%`,
-              ],
-            }}
-            transition={{
-              duration: 10 + Math.random() * 30,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          />
-        ))}
-      </div>
+      {isLoaded && (
+        <div className="absolute inset-0 z-0">
+          {[...Array(20)].map((_, i) => {
+            // Generate deterministic values based on index
+            const opacity = 0.1 + (i * 0.3) / 20;
+            const xStart = (i * 5) % 100;
+            const yStart = (i * 7) % 100;
+            const scale = 0.2 + (i % 5) * 0.3;
+            const xEnd1 = (xStart + 20) % 100;
+            const yEnd1 = (yStart + 30) % 100;
+            const xEnd2 = (xStart + 40) % 100;
+            const yEnd2 = (yStart + 60) % 100;
+            const duration = 15 + (i % 10) * 2;
+
+            return (
+              <motion.div
+                key={`hero-particle-${i}-${xStart}-${yStart}`}
+                className="absolute w-2 h-2 rounded-full bg-primary-500 dark:bg-primary-300"
+                initial={{
+                  opacity,
+                  x: `${xStart}%`,
+                  y: `${yStart}%`,
+                  scale,
+                }}
+                animate={{
+                  y: [`${yStart}%`, `${yEnd1}%`, `${yEnd2}%`],
+                  x: [`${xStart}%`, `${xEnd1}%`, `${xEnd2}%`],
+                }}
+                transition={{
+                  duration,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              />
+            );
+          })}
+        </div>
+      )}
 
       {/* Floating technology icons */}
       {flyingIcons.map(({ Icon, initialX, initialY, size, delay }, index) => (

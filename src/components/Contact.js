@@ -111,8 +111,23 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      // Simulate API call with timeout
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      // Send data to Google Sheets via API
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      console.log('Response from server:', result);
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to submit form');
+      }
+
+      console.log('Form submitted successfully:', result);
 
       // Reset form on success
       setFormData({
@@ -123,10 +138,11 @@ export default function Contact() {
         message: "",
       });
       setSubmitStatus("success");
-      setTimeout(() => setSubmitStatus(null), 5000);
+      setTimeout(() => setSubmitStatus(null), 8000); // Show success message longer
     } catch (error) {
+      console.error('Error submitting form:', error);
       setSubmitStatus("error");
-      setTimeout(() => setSubmitStatus(null), 5000);
+      setTimeout(() => setSubmitStatus(null), 8000); // Show error message longer
     } finally {
       setIsSubmitting(false);
     }
@@ -496,9 +512,9 @@ export default function Contact() {
                   exit={{ opacity: 0, y: 10 }}
                   className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 text-green-800 dark:text-green-200 rounded-lg flex items-center"
                 >
-                  <FiCheck className="w-5 h-5 mr-2" />
+                  <FiCheck className="w-5 h-5 mr-2 flex-shrink-0" />
                   <span>
-                    Thank you! Your message has been sent successfully.
+                    Thank you! Your message has been sent successfully and saved to our records. We'll get back to you within 24 hours.
                   </span>
                 </motion.div>
               )}
@@ -511,8 +527,7 @@ export default function Contact() {
                   className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-200 rounded-lg"
                 >
                   <span>
-                    Sorry, there was an error sending your message. Please try
-                    again.
+                    Sorry, there was an error sending your message. Please check your internet connection and try again, or contact us directly at info@luminostack.com.
                   </span>
                 </motion.div>
               )}
